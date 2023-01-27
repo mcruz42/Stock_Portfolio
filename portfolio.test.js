@@ -12,5 +12,5 @@ test('null to check that jest works', () => {
 test('Testing createPortfolio -- success', () => {
   const target = [];
   const result = myFunctions.createPortfolio();
-  expect(target).toBe(result);
+  expect(target).toStrictEqual(result);
 });
