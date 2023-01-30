@@ -84,7 +84,17 @@ test('Testing shares_of nonexistent ticker-- success', () => {
 
 test('Testing only owned symbols exist-- success', () => {        
     const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
-    const target = myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 10})            // is this poor form bc it relies on another func? how can I improve this?
+    const target = myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 10});            // is this poor form bc it relies on another func? how can I improve this?
     expect(target).toStrictEqual([{"ticker": "GME", "shares": 5}]);
 });
 
+/*test('Testing raiseException-- success', () => {   
+    const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
+    //const target = myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 100});            // is this poor form bc it relies on another func? how can I improve this?
+    //expect( function(){ parser.parse(raw); } ).toThrow(new Error("Parsing is not possible"));
+    expect(myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 100})).toThrow(ShareSaleException);
+});*/
+
+it('Testing throws an error when invalid shares', () => {
+    expect(() => myFunctions(myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 100})).toThrow("You don't have that many shares to sell!"));
+});

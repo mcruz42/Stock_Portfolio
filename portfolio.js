@@ -30,6 +30,13 @@ function purchase(portfolio, {ticker, shares}) {
 function sale(portfolio, {ticker, shares}) {
     for (let i = 0; i < portfolio.length; i++) {
         if (portfolio[i].ticker === ticker) {
+            try {
+                if(shares > portfolio[i].shares) throw ShareSaleException;              
+            }
+            catch(ShareSaleException) {
+                message = "You don't have that many shares to sell!"
+            }
+
             portfolio[i].shares -= shares;
             if (portfolio[i].shares === 0) {
                 portfolio.splice(i, 1);
@@ -40,6 +47,14 @@ function sale(portfolio, {ticker, shares}) {
     }
 }
 
+
+
+
+
+
+
+
+
 function shares_of(portfolio, ticker){
     for (let i = 0; i < portfolio.length; i++) {
         if (portfolio[i].ticker === ticker) {
@@ -47,6 +62,19 @@ function shares_of(portfolio, ticker){
         }
     }
     return 0;
+}
+
+try {
+    sale(portfolio, {ticker, shares})
+    for (let i = 0; i < portfolio.length; i++) {
+        if (portfolio[i].ticker === ticker) {
+            if (shares > portfolio[i].shares) {
+
+            }
+        } 
+    }
+} catch (ShareSaleException) {
+    
 }
 
 exports.createPortfolio = createPortfolio;
