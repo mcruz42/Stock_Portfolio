@@ -30,12 +30,7 @@ function purchase(portfolio, {ticker, shares}) {
 function sale(portfolio, {ticker, shares}) {
     for (let i = 0; i < portfolio.length; i++) {
         if (portfolio[i].ticker === ticker) {
-            try {
-                if(shares > portfolio[i].shares) throw ShareSaleException;              
-            }
-            catch(ShareSaleException) {
-                message = "You don't have that many shares to sell!"
-            }
+            if(shares > portfolio[i].shares) throw ShareSaleException;              
 
             portfolio[i].shares -= shares;
             if (portfolio[i].shares === 0) {
