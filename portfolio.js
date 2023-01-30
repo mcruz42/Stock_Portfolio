@@ -18,7 +18,7 @@ function count(portfolio) {
 function purchase(portfolio, {ticker, shares}) {
     for (let i = 0; i < portfolio.length; i++) {
         if (portfolio[i].ticker === ticker) {
-            portfolio[i].shares = shares;
+            portfolio[i].shares += shares;
             return portfolio;
         }
     }

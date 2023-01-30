@@ -58,3 +58,11 @@ test('Testing purchase -- success', () => {
     expect(target).toStrictEqual([{"ticker": "GME", "shares": 5}, {"ticker": "V", "shares": 15}]);
 });  // fails appropriately :) idk the matcher for "notEqualTo" */
 
+test('Testing purchase on existing ticker -- success', () => {
+    const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
+    console.log(portfolio);
+    const target = myFunctions.purchase(portfolio, {"ticker": "GME", "shares": 15});
+    console.log(portfolio);
+    expect(target).toStrictEqual([{"ticker": "GME", "shares": 20}, {"ticker": "RBLX", "shares": 10}]);
+});  
+
