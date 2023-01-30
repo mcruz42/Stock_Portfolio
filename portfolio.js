@@ -31,6 +31,10 @@ function sale(portfolio, {ticker, shares}) {
     for (let i = 0; i < portfolio.length; i++) {
         if (portfolio[i].ticker === ticker) {
             portfolio[i].shares -= shares;
+            if (portfolio[i].shares === 0) {
+                portfolio.splice(i, 1);
+                return portfolio
+            }
             return portfolio;
         }
     }

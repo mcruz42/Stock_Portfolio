@@ -82,3 +82,9 @@ test('Testing shares_of nonexistent ticker-- success', () => {
     expect(target).toStrictEqual(0);
 });
 
+test('Testing only owned symbols exist-- success', () => {        
+    const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
+    const target = myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 10})            // is this poor form bc it relies on another func? how can I improve this?
+    expect(target).toStrictEqual([{"ticker": "GME", "shares": 5}]);
+});
+
