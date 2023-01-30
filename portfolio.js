@@ -11,10 +11,10 @@ function isEmpty(portfolio) {
     }
 }  
 
-/*function count(portfolio) {
-    const total = 0;
-    for(let i=0, i < portfolio)
-}*/
+function count(portfolio) {
+    return portfolio.length;
+}
 
 exports.createPortfolio = createPortfolio;
 exports.isEmpty = isEmpty;
+exports.count = count;

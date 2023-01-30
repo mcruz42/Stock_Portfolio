@@ -8,7 +8,7 @@ test('null to check that jest works', () => {
     expect(n).not.toBeUndefined();
     expect(n).not.toBeTruthy();
     expect(n).toBeFalsy();
-  });
+});
 
 test('Testing createPortfolio -- success', () => {
   const target = [];
@@ -20,11 +20,29 @@ test('Testing isEmpty -- success', () => {
     const portfo = myFunctions.createPortfolio();
     const target = myFunctions.isEmpty(portfo);
     expect(target).toBeTruthy();
-  }); 
+}); 
 
-  test('Testing isEmpty again to check -- success', () => {
+test('Testing isEmpty again to check -- success', () => {
     const portfo = [1, 2]
     const target = myFunctions.isEmpty(portfo);
     expect(target).toBeFalsy();
-  }); 
+}); 
+
+test('Testing isEmpty again to check -- success', () => {
+    const portfo = [1, 2]
+    const target = myFunctions.isEmpty(portfo);
+    expect(target).toBeFalsy();
+});   
+
+test('Testing count zero -- success', () => {
+    const portfolio = []
+    const target = myFunctions.count(portfolio);
+    expect(target).toStrictEqual(0);
+});  
+
+test('Testing count positive -- success', () => {
+    const portfolio = [{"ticker":"GME", "shares": 5}, {"ticker":"RBLX", "shares": 10}]
+    const target = myFunctions.count(portfolio);
+    expect(target).toStrictEqual(2);
+});  
 
