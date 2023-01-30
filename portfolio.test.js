@@ -60,9 +60,13 @@ test('Testing purchase -- success', () => {
 
 test('Testing purchase on existing ticker -- success', () => {
     const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
-    console.log(portfolio);
     const target = myFunctions.purchase(portfolio, {"ticker": "GME", "shares": 15});
-    console.log(portfolio);
     expect(target).toStrictEqual([{"ticker": "GME", "shares": 20}, {"ticker": "RBLX", "shares": 10}]);
 });  
+
+test('Testing sale on existing ticker -- success', () => {
+    const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
+    const target = myFunctions.sale(portfolio, {"ticker": "RBLX", "shares": 2});
+    expect(target).toStrictEqual([{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 8}]);
+});
 

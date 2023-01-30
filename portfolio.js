@@ -27,7 +27,17 @@ function purchase(portfolio, {ticker, shares}) {
     
 }
 
+function sale(portfolio, {ticker, shares}) {
+    for (let i = 0; i < portfolio.length; i++) {
+        if (portfolio[i].ticker === ticker) {
+            portfolio[i].shares -= shares;
+            return portfolio;
+        }
+    }
+}
+
 exports.createPortfolio = createPortfolio;
 exports.isEmpty = isEmpty;
 exports.count = count;
 exports.purchase = purchase;
+exports.sale = sale;
