@@ -70,3 +70,15 @@ test('Testing sale on existing ticker -- success', () => {
     expect(target).toStrictEqual([{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 8}]);
 });
 
+test('Testing shares_of -- success', () => {
+    const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
+    const target = myFunctions.shares_of(portfolio, "GME");
+    expect(target).toStrictEqual(5);
+});
+
+test('Testing shares_of nonexistent ticker-- success', () => {
+    const portfolio = [{"ticker": "GME", "shares": 5}, {"ticker": "RBLX", "shares": 10}]
+    const target = myFunctions.shares_of(portfolio, "V");
+    expect(target).toStrictEqual(0);
+});
+

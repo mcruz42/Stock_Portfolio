@@ -36,8 +36,18 @@ function sale(portfolio, {ticker, shares}) {
     }
 }
 
+function shares_of(portfolio, ticker){
+    for (let i = 0; i < portfolio.length; i++) {
+        if (portfolio[i].ticker === ticker) {
+            return portfolio[i].shares;
+        }
+    }
+    return 0;
+}
+
 exports.createPortfolio = createPortfolio;
 exports.isEmpty = isEmpty;
 exports.count = count;
 exports.purchase = purchase;
 exports.sale = sale;
+exports.shares_of = shares_of;
