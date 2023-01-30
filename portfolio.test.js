@@ -19,9 +19,12 @@ test('Testing createPortfolio -- success', () => {
 test('Testing isEmpty -- success', () => {
     const portfo = myFunctions.createPortfolio();
     const target = myFunctions.isEmpty(portfo);
-    console.log(portfo);
-    console.log(target);
     expect(target).toBeTruthy();
-  });   // prof debruhl said try hard coding it; he had this same prob. prob must be in my func
+  }); 
 
-  
+  test('Testing isEmpty again to check -- success', () => {
+    const portfo = [1, 2]
+    const target = myFunctions.isEmpty(portfo);
+    expect(target).toBeFalsy();
+  }); 
+

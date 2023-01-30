@@ -9,9 +9,6 @@ function isEmpty(portfolio) {
     if (portfolio.length === 0) {
         return true;
     }
-    else {
-        return false;
-    }
 }  
 
 /*function count(portfolio) {
