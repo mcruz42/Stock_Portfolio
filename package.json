@@ -1,0 +1,22 @@
+{
+  "name": "stock-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "portfolio.test.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcruz42/Stock_Portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcruz42/Stock_Portfolio/issues"
+  },
+  "homepage": "https://github.com/mcruz42/Stock_Portfolio#readme",
+  "dependencies": {
+    "jest": "^29.4.0"
+  }
+}
